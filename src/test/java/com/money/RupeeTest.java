@@ -2,8 +2,7 @@ package com.money;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class RupeeTest {
@@ -16,8 +15,19 @@ public class RupeeTest {
     {
         assertEquals(rupee3.monetaryValue,(rupee1.addMoney(rupee2)).monetaryValue);
     }
+    @Test
     public void  checkMoneyValueNotEqualsToTheSummedUpValue()
     {
         assertNotEquals(new Rupee(17).monetaryValue,(rupee1.addMoney(rupee2)).monetaryValue);
+    }
+
+    @Test
+    public void checkTwoRupeeObjectsAreEqualBasedOnMonetaryValue(){
+        assertTrue(new Rupee(5).equals(rupee1));
+    }
+
+    @Test
+    public void checkTwoRupeeObjectsAreNotEqualBasedOnMonetaryValue(){
+        assertFalse(new Rupee(6).equals(rupee1));
     }
 }
